@@ -1,10 +1,3 @@
-//
-//  BlogPostItemsUITests.swift
-//  BlogPostItemsUITests
-//
-//  Created by Wesley Matlock on 6/19/24.
-//
-
 import XCTest
 
 final class BlogPostItemsUITests: XCTestCase {

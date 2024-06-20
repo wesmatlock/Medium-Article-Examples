@@ -1,10 +1,3 @@
-//
-//  BlogPostItemsTests.swift
-//  BlogPostItemsTests
-//
-//  Created by Wesley Matlock on 6/19/24.
-//
-
 import Testing
 
 struct BlogPostItemsTests {
