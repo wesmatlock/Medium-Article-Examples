@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6278CB202C243C1E009612EB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6278CB1F2C243C1E009612EB /* CameraView.swift */; };
+		6278CB222C243CDA009612EB /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6278CB212C243CDA009612EB /* CameraViewController.swift */; };
+		6278CB242C243D9E009612EB /* CameraScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6278CB232C243D9E009612EB /* CameraScanView.swift */; };
 		629292432C243AA90055D74D /* NetworkExampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629292372C243AA90055D74D /* NetworkExampleViewModel.swift */; };
 		629292442C243AA90055D74D /* BlogPostItemsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629292402C243AA90055D74D /* BlogPostItemsApp.swift */; };
 		629292452C243AA90055D74D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629292382C243AA90055D74D /* NetworkManager.swift */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		620B60B12C243B2500F4FB81 /* BlogPostItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostItemsTests.swift; sourceTree = "<group>"; };
+		6278CB1F2C243C1E009612EB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		6278CB212C243CDA009612EB /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		6278CB232C243D9E009612EB /* CameraScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScanView.swift; sourceTree = "<group>"; };
 		629292342C243AA90055D74D /* AsyncAwaitBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitBridge.swift; sourceTree = "<group>"; };
 		629292362C243AA90055D74D /* NetworkExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkExampleView.swift; sourceTree = "<group>"; };
 		629292372C243AA90055D74D /* NetworkExampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkExampleViewModel.swift; sourceTree = "<group>"; };
@@ -85,6 +91,16 @@
 			path = MedimuExamplesTests;
 			sourceTree = "<group>";
 		};
+		6278CB1E2C243BA8009612EB /* ScanninTextUsingCamera */ = {
+			isa = PBXGroup;
+			children = (
+				6278CB1F2C243C1E009612EB /* CameraView.swift */,
+				6278CB212C243CDA009612EB /* CameraViewController.swift */,
+				6278CB232C243D9E009612EB /* CameraScanView.swift */,
+			);
+			path = ScanninTextUsingCamera;
+			sourceTree = "<group>";
+		};
 		629292352C243AA90055D74D /* AsyncAwaitBridgeExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +138,7 @@
 		629292422C243AA90055D74D /* MedimuExamples */ = {
 			isa = PBXGroup;
 			children = (
+				6278CB1E2C243BA8009612EB /* ScanninTextUsingCamera */,
 				629292352C243AA90055D74D /* AsyncAwaitBridgeExample */,
 				629292392C243AA90055D74D /* NetworkManagerExample */,
 				6292923B2C243AA90055D74D /* Preview Content */,
@@ -290,6 +307,9 @@
 				629292472C243AA90055D74D /* NetworkExampleView.swift in Sources */,
 				629292482C243AA90055D74D /* AsyncAwaitBridge.swift in Sources */,
 				629292492C243AA90055D74D /* ContentView.swift in Sources */,
+				6278CB202C243C1E009612EB /* CameraView.swift in Sources */,
+				6278CB242C243D9E009612EB /* CameraScanView.swift in Sources */,
+				6278CB222C243CDA009612EB /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +470,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires camera access to scan text.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -489,6 +510,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires camera access to scan text.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
