@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct BlogPostItemsApp: App {
+struct MedimuExamplesApp: App {
 
   init() {
     // Set up URLCache - Efficient Network Caching in Swift with URLCache Post
