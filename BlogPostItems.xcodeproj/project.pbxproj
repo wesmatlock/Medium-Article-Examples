@@ -24,6 +24,7 @@
 		62D284A42C25E844005AF608 /* NavigationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D284A32C25E844005AF608 /* NavigationContentView.swift */; };
 		62D284A62C25E8A4005AF608 /* CustomDetentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D284A52C25E8A4005AF608 /* CustomDetentView.swift */; };
 		62D284A82C25E9EE005AF608 /* AdvancedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D284A72C25E9EE005AF608 /* AdvancedContentView.swift */; };
+		62D284AA2C25F099005AF608 /* MainModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D284A92C25F099005AF608 /* MainModifierView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		62D284A32C25E844005AF608 /* NavigationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContentView.swift; sourceTree = "<group>"; };
 		62D284A52C25E8A4005AF608 /* CustomDetentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDetentView.swift; sourceTree = "<group>"; };
 		62D284A72C25E9EE005AF608 /* AdvancedContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedContentView.swift; sourceTree = "<group>"; };
+		62D284A92C25F099005AF608 /* MainModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModifierView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		6278CB252C243F4D009612EB /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				62D284A92C25F099005AF608 /* MainModifierView.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -155,17 +158,17 @@
 		629292422C243AA90055D74D /* MediumExamples */ = {
 			isa = PBXGroup;
 			children = (
-				62D284A02C25C28E005AF608 /* MediumExamples.entitlements */,
-				62D2849D2C25BF9A005AF608 /* PresentationDetent */,
-				6278CB252C243F4D009612EB /* ViewModifiers */,
-				6278CB1E2C243BA8009612EB /* ScanninTextUsingCamera */,
-				629292352C243AA90055D74D /* AsyncAwaitBridgeExample */,
-				629292392C243AA90055D74D /* NetworkManagerExample */,
-				6292923B2C243AA90055D74D /* Preview Content */,
-				6292923D2C243AA90055D74D /* URLCacheExample */,
 				6292923E2C243AA90055D74D /* Assets.xcassets */,
+				629292352C243AA90055D74D /* AsyncAwaitBridgeExample */,
 				629292402C243AA90055D74D /* BlogPostItemsApp.swift */,
 				629292412C243AA90055D74D /* ContentView.swift */,
+				62D284A02C25C28E005AF608 /* MediumExamples.entitlements */,
+				629292392C243AA90055D74D /* NetworkManagerExample */,
+				62D2849D2C25BF9A005AF608 /* PresentationDetent */,
+				6292923B2C243AA90055D74D /* Preview Content */,
+				6278CB1E2C243BA8009612EB /* ScanninTextUsingCamera */,
+				6292923D2C243AA90055D74D /* URLCacheExample */,
+				6278CB252C243F4D009612EB /* ViewModifiers */,
 			);
 			path = MediumExamples;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62D284AA2C25F099005AF608 /* MainModifierView.swift in Sources */,
 				62D284A82C25E9EE005AF608 /* AdvancedContentView.swift in Sources */,
 				629292432C243AA90055D74D /* NetworkExampleViewModel.swift in Sources */,
 				629292442C243AA90055D74D /* BlogPostItemsApp.swift in Sources */,
