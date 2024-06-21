@@ -26,6 +26,7 @@
 		62D284A82C25E9EE005AF608 /* AdvancedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D284A72C25E9EE005AF608 /* AdvancedContentView.swift */; };
 		62D284AA2C25F099005AF608 /* MainModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D284A92C25F099005AF608 /* MainModifierView.swift */; };
 		62D284AD2C260261005AF608 /* MainPlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D284AC2C260261005AF608 /* MainPlaceHolderView.swift */; };
+		62D284B02C261EB6005AF608 /* MainFocustFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D284AF2C261EB6005AF608 /* MainFocustFormView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		62D284A72C25E9EE005AF608 /* AdvancedContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedContentView.swift; sourceTree = "<group>"; };
 		62D284A92C25F099005AF608 /* MainModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModifierView.swift; sourceTree = "<group>"; };
 		62D284AC2C260261005AF608 /* MainPlaceHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPlaceHolderView.swift; sourceTree = "<group>"; };
+		62D284AF2C261EB6005AF608 /* MainFocustFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFocustFormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		629292422C243AA90055D74D /* MediumExamples */ = {
 			isa = PBXGroup;
 			children = (
+				62D284AE2C261E97005AF608 /* FocusState */,
 				62D284AB2C25F7C0005AF608 /* PlaceholderContentView */,
 				6292923E2C243AA90055D74D /* Assets.xcassets */,
 				629292352C243AA90055D74D /* AsyncAwaitBridgeExample */,
@@ -213,6 +216,14 @@
 				62D284AC2C260261005AF608 /* MainPlaceHolderView.swift */,
 			);
 			path = PlaceholderContentView;
+			sourceTree = "<group>";
+		};
+		62D284AE2C261E97005AF608 /* FocusState */ = {
+			isa = PBXGroup;
+			children = (
+				62D284AF2C261EB6005AF608 /* MainFocustFormView.swift */,
+			);
+			path = FocusState;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +367,7 @@
 				62D2849F2C25BFB3005AF608 /* MainPresentationDetent.swift in Sources */,
 				62D284A62C25E8A4005AF608 /* CustomDetentView.swift in Sources */,
 				62D284A42C25E844005AF608 /* NavigationContentView.swift in Sources */,
+				62D284B02C261EB6005AF608 /* MainFocustFormView.swift in Sources */,
 				629292492C243AA90055D74D /* ContentView.swift in Sources */,
 				62D284A22C25C5B0005AF608 /* DynamicContentSheetView.swift in Sources */,
 				6278CB202C243C1E009612EB /* CameraView.swift in Sources */,
