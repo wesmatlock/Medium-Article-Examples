@@ -162,14 +162,11 @@
 		629292422C243AA90055D74D /* MediumExamples */ = {
 			isa = PBXGroup;
 			children = (
-				62D284AE2C261E97005AF608 /* FocusState */,
-				62D284AB2C25F7C0005AF608 /* PlaceholderContentView */,
-				6292923E2C243AA90055D74D /* Assets.xcassets */,
+				62D284B12C2622A9005AF608 /* App Files */,
 				629292352C243AA90055D74D /* AsyncAwaitBridgeExample */,
-				629292402C243AA90055D74D /* BlogPostItemsApp.swift */,
-				629292412C243AA90055D74D /* ContentView.swift */,
-				62D284A02C25C28E005AF608 /* MediumExamples.entitlements */,
+				62D284AE2C261E97005AF608 /* FocusState */,
 				629292392C243AA90055D74D /* NetworkManagerExample */,
+				62D284AB2C25F7C0005AF608 /* PlaceholderContentView */,
 				62D2849D2C25BF9A005AF608 /* PresentationDetent */,
 				6292923B2C243AA90055D74D /* Preview Content */,
 				6278CB1E2C243BA8009612EB /* ScanninTextUsingCamera */,
@@ -224,6 +221,17 @@
 				62D284AF2C261EB6005AF608 /* MainFocustFormView.swift */,
 			);
 			path = FocusState;
+			sourceTree = "<group>";
+		};
+		62D284B12C2622A9005AF608 /* App Files */ = {
+			isa = PBXGroup;
+			children = (
+				6292923E2C243AA90055D74D /* Assets.xcassets */,
+				629292402C243AA90055D74D /* BlogPostItemsApp.swift */,
+				629292412C243AA90055D74D /* ContentView.swift */,
+				62D284A02C25C28E005AF608 /* MediumExamples.entitlements */,
+			);
+			path = "App Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
