@@ -16,7 +16,11 @@ struct FlightDetails: View {
       LazyVStack(spacing: 10, pinnedViews: [.sectionHeaders]) {
         Section {
           // All the sections
+          ActionsRow()
+          GateDepartureBanner()
           DepartureAndArrivalDetailView(flights: flights)
+          SeatDetails()
+          FlightArrivalForecast()
 
         } header: {
           flightDetailHeader
@@ -35,7 +39,7 @@ struct FlightDetails: View {
           .frame(width: 40)
         
         VStack(alignment: .leading) {
-          Text("Delta 666 - Mon, 25")
+          Text("Delta 123 - Mon, 25")
             .font(.caption)
             .fontWeight(.medium)
             .foregroundStyle(.secondary)
