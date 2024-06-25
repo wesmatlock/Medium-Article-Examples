@@ -14,6 +14,10 @@
 		621CF1472C28FEDD001ADFD5 /* Double+Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621CF1462C28FEDD001ADFD5 /* Double+Radians.swift */; };
 		621CF1492C290489001ADFD5 /* MainUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621CF1482C290489001ADFD5 /* MainUIModel.swift */; };
 		621CF14C2C2904E6001ADFD5 /* FlightDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621CF14B2C2904E6001ADFD5 /* FlightDetails.swift */; };
+		62200C4D2C2A40B7007939DD /* MyPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62200C4C2C2A40B7007939DD /* MyPreferenceKey.swift */; };
+		62200C4F2C2A4105007939DD /* MainPreferenceKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62200C4E2C2A4105007939DD /* MainPreferenceKeyView.swift */; };
+		62200C512C2A4153007939DD /* DynamicHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62200C502C2A4153007939DD /* DynamicHeaderView.swift */; };
+		62200C532C2A4220007939DD /* SyncronizedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62200C522C2A4220007939DD /* SyncronizedView.swift */; };
 		6278CB202C243C1E009612EB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6278CB1F2C243C1E009612EB /* CameraView.swift */; };
 		6278CB222C243CDA009612EB /* CreditCardScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6278CB212C243CDA009612EB /* CreditCardScannerView.swift */; };
 		6278CB242C243D9E009612EB /* CameraScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6278CB232C243D9E009612EB /* CameraScanView.swift */; };
@@ -71,6 +75,10 @@
 		621CF1462C28FEDD001ADFD5 /* Double+Radians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Radians.swift"; sourceTree = "<group>"; };
 		621CF1482C290489001ADFD5 /* MainUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIModel.swift; sourceTree = "<group>"; };
 		621CF14B2C2904E6001ADFD5 /* FlightDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetails.swift; sourceTree = "<group>"; };
+		62200C4C2C2A40B7007939DD /* MyPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPreferenceKey.swift; sourceTree = "<group>"; };
+		62200C4E2C2A4105007939DD /* MainPreferenceKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPreferenceKeyView.swift; sourceTree = "<group>"; };
+		62200C502C2A4153007939DD /* DynamicHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeaderView.swift; sourceTree = "<group>"; };
+		62200C522C2A4220007939DD /* SyncronizedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncronizedView.swift; sourceTree = "<group>"; };
 		6278CB1F2C243C1E009612EB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		6278CB212C243CDA009612EB /* CreditCardScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardScannerView.swift; sourceTree = "<group>"; };
 		6278CB232C243D9E009612EB /* CameraScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScanView.swift; sourceTree = "<group>"; };
@@ -153,6 +161,17 @@
 			path = FlightDetails;
 			sourceTree = "<group>";
 		};
+		62200C4B2C2A408F007939DD /* PreferenceKeyGuide */ = {
+			isa = PBXGroup;
+			children = (
+				62200C4C2C2A40B7007939DD /* MyPreferenceKey.swift */,
+				62200C4E2C2A4105007939DD /* MainPreferenceKeyView.swift */,
+				62200C502C2A4153007939DD /* DynamicHeaderView.swift */,
+				62200C522C2A4220007939DD /* SyncronizedView.swift */,
+			);
+			path = PreferenceKeyGuide;
+			sourceTree = "<group>";
+		};
 		6278CB1E2C243BA8009612EB /* ScanninTextUsingCamera */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +227,7 @@
 		629292422C243AA90055D74D /* MediumExamples */ = {
 			isa = PBXGroup;
 			children = (
+				62200C4B2C2A408F007939DD /* PreferenceKeyGuide */,
 				62CF269A2C2856CA00399CA3 /* FlightTracker */,
 				62D284A02C25C28E005AF608 /* MediumExamples.entitlements */,
 				62D284B12C2622A9005AF608 /* App Files */,
@@ -533,6 +553,7 @@
 				62CF26A42C28961200399CA3 /* DepartureAndArrivalDetailView.swift in Sources */,
 				62D9C6AD2C29D3C3001A0585 /* SeatDetails.swift in Sources */,
 				621CF1472C28FEDD001ADFD5 /* Double+Radians.swift in Sources */,
+				62200C512C2A4153007939DD /* DynamicHeaderView.swift in Sources */,
 				62CF26A62C28961D00399CA3 /* DetailAndArrivalViewModel.swift in Sources */,
 				621CF13F2C28A7F3001ADFD5 /* FlightInfo.swift in Sources */,
 				629292452C243AA90055D74D /* NetworkManager.swift in Sources */,
@@ -546,15 +567,18 @@
 				62D9C6A52C29C7A8001A0585 /* ActionsRow.swift in Sources */,
 				62D284A62C25E8A4005AF608 /* CustomDetentView.swift in Sources */,
 				62D284A42C25E844005AF608 /* NavigationContentView.swift in Sources */,
+				62200C4F2C2A4105007939DD /* MainPreferenceKeyView.swift in Sources */,
 				62D9C6A72C29C7F1001A0585 /* StrokedCapsule.swift in Sources */,
 				62D284B02C261EB6005AF608 /* MainFocustFormView.swift in Sources */,
 				629292492C243AA90055D74D /* ContentView.swift in Sources */,
 				62D284A22C25C5B0005AF608 /* DynamicContentSheetView.swift in Sources */,
 				6278CB202C243C1E009612EB /* CameraView.swift in Sources */,
+				62200C532C2A4220007939DD /* SyncronizedView.swift in Sources */,
 				621CF1412C28A820001ADFD5 /* AirportAnnotation.swift in Sources */,
 				62D284AD2C260261005AF608 /* MainPlaceHolderView.swift in Sources */,
 				62D9C6B02C29D64F001A0585 /* FlightArrivalForecast.swift in Sources */,
 				6278CB242C243D9E009612EB /* CameraScanView.swift in Sources */,
+				62200C4D2C2A40B7007939DD /* MyPreferenceKey.swift in Sources */,
 				62D9C6B42C29D719001A0585 /* FlightStatus.swift in Sources */,
 				6278CB222C243CDA009612EB /* CreditCardScannerView.swift in Sources */,
 				621CF1452C28FE5E001ADFD5 /* LocationUtilities.swift in Sources */,
