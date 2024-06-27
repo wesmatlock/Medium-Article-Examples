@@ -1,5 +1,5 @@
 import SwiftUI
-
+#if os(iOS)
 struct MainFocustFormView: View {
   @State private var formState = FormState()
   @FocusState private var focusField: FormField?
@@ -102,3 +102,4 @@ struct FormState {
 #Preview {
   MainFocustFormView()
 }
+#endif

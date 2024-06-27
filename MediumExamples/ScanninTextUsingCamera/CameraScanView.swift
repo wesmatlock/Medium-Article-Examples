@@ -1,5 +1,6 @@
 import SwiftUI
 
+#if os(iOS)
 struct CameraScanView: View {
   @State private var creditCardNumber: String = ""
 
@@ -21,3 +22,4 @@ struct CameraScanView: View {
     }
   }
 }
+#endif

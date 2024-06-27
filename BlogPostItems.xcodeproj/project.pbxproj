@@ -18,6 +18,8 @@
 		62200C4F2C2A4105007939DD /* MainPreferenceKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62200C4E2C2A4105007939DD /* MainPreferenceKeyView.swift */; };
 		62200C512C2A4153007939DD /* DynamicHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62200C502C2A4153007939DD /* DynamicHeaderView.swift */; };
 		62200C532C2A4220007939DD /* SyncronizedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62200C522C2A4220007939DD /* SyncronizedView.swift */; };
+		62200C5B2C2ADAEE007939DD /* InteractivePhotoGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62200C5A2C2ADAEE007939DD /* InteractivePhotoGallery.swift */; };
+		62200C5D2C2B0F45007939DD /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62200C5C2C2B0F45007939DD /* CameraViewModel.swift */; };
 		6278CB202C243C1E009612EB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6278CB1F2C243C1E009612EB /* CameraView.swift */; };
 		6278CB222C243CDA009612EB /* CreditCardScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6278CB212C243CDA009612EB /* CreditCardScannerView.swift */; };
 		6278CB242C243D9E009612EB /* CameraScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6278CB232C243D9E009612EB /* CameraScanView.swift */; };
@@ -79,6 +81,8 @@
 		62200C4E2C2A4105007939DD /* MainPreferenceKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPreferenceKeyView.swift; sourceTree = "<group>"; };
 		62200C502C2A4153007939DD /* DynamicHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeaderView.swift; sourceTree = "<group>"; };
 		62200C522C2A4220007939DD /* SyncronizedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncronizedView.swift; sourceTree = "<group>"; };
+		62200C5A2C2ADAEE007939DD /* InteractivePhotoGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractivePhotoGallery.swift; sourceTree = "<group>"; };
+		62200C5C2C2B0F45007939DD /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		6278CB1F2C243C1E009612EB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		6278CB212C243CDA009612EB /* CreditCardScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardScannerView.swift; sourceTree = "<group>"; };
 		6278CB232C243D9E009612EB /* CameraScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScanView.swift; sourceTree = "<group>"; };
@@ -172,6 +176,15 @@
 			path = PreferenceKeyGuide;
 			sourceTree = "<group>";
 		};
+		62200C542C2A5480007939DD /* VisionPro */ = {
+			isa = PBXGroup;
+			children = (
+				62200C5A2C2ADAEE007939DD /* InteractivePhotoGallery.swift */,
+				62200C5C2C2B0F45007939DD /* CameraViewModel.swift */,
+			);
+			path = VisionPro;
+			sourceTree = "<group>";
+		};
 		6278CB1E2C243BA8009612EB /* ScanninTextUsingCamera */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,14 +240,15 @@
 		629292422C243AA90055D74D /* MediumExamples */ = {
 			isa = PBXGroup;
 			children = (
-				62200C4B2C2A408F007939DD /* PreferenceKeyGuide */,
-				62CF269A2C2856CA00399CA3 /* FlightTracker */,
-				62D284A02C25C28E005AF608 /* MediumExamples.entitlements */,
+				62200C542C2A5480007939DD /* VisionPro */,
 				62D284B12C2622A9005AF608 /* App Files */,
 				629292352C243AA90055D74D /* AsyncAwaitBridgeExample */,
+				62CF269A2C2856CA00399CA3 /* FlightTracker */,
 				62D284AE2C261E97005AF608 /* FocusState */,
+				62D284A02C25C28E005AF608 /* MediumExamples.entitlements */,
 				629292392C243AA90055D74D /* NetworkManagerExample */,
 				62D284AB2C25F7C0005AF608 /* PlaceholderContentView */,
+				62200C4B2C2A408F007939DD /* PreferenceKeyGuide */,
 				62D2849D2C25BF9A005AF608 /* PresentationDetent */,
 				6292923B2C243AA90055D74D /* Preview Content */,
 				6278CB1E2C243BA8009612EB /* ScanninTextUsingCamera */,
@@ -557,11 +571,13 @@
 				62CF26A62C28961D00399CA3 /* DetailAndArrivalViewModel.swift in Sources */,
 				621CF13F2C28A7F3001ADFD5 /* FlightInfo.swift in Sources */,
 				629292452C243AA90055D74D /* NetworkManager.swift in Sources */,
+				62200C5D2C2B0F45007939DD /* CameraViewModel.swift in Sources */,
 				62D9C6B22C29D68D001A0585 /* FlightArrivalData.swift in Sources */,
 				62D9C6AA2C29CB1C001A0585 /* GateDepartureBanner.swift in Sources */,
 				621CF1492C290489001ADFD5 /* MainUIModel.swift in Sources */,
 				629292462C243AA90055D74D /* CachedNetwork.swift in Sources */,
 				629292472C243AA90055D74D /* NetworkExampleView.swift in Sources */,
+				62200C5B2C2ADAEE007939DD /* InteractivePhotoGallery.swift in Sources */,
 				629292482C243AA90055D74D /* AsyncAwaitBridge.swift in Sources */,
 				62D2849F2C25BFB3005AF608 /* MainPresentationDetent.swift in Sources */,
 				62D9C6A52C29C7A8001A0585 /* ActionsRow.swift in Sources */,
@@ -739,7 +755,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MediumExamples/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PVKFJ5KXUY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -781,7 +797,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MediumExamples/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PVKFJ5KXUY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

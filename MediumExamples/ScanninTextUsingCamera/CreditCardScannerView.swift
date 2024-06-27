@@ -2,6 +2,7 @@ import SwiftUI
 import AVFoundation
 import Vision
 
+#if os(iOS)
 struct CreditCardScannerView: UIViewControllerRepresentable {
   class Coordinator: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     var parent: CreditCardScannerView
@@ -103,3 +104,5 @@ struct CreditCardScannerView: UIViewControllerRepresentable {
 
   func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }
+
+#endif
