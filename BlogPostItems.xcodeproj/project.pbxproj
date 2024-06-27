@@ -242,7 +242,7 @@
 		629292422C243AA90055D74D /* MediumExamples */ = {
 			isa = PBXGroup;
 			children = (
-				62E144D92C2E2C5700BD5688 /* ListBlog */,
+				62E144D92C2E2C5700BD5688 /* ListViewExample */,
 				62200C542C2A5480007939DD /* VisionPro */,
 				62D284B12C2622A9005AF608 /* App Files */,
 				629292352C243AA90055D74D /* AsyncAwaitBridgeExample */,
@@ -431,12 +431,12 @@
 			path = FlightArrivalForecast;
 			sourceTree = "<group>";
 		};
-		62E144D92C2E2C5700BD5688 /* ListBlog */ = {
+		62E144D92C2E2C5700BD5688 /* ListViewExample */ = {
 			isa = PBXGroup;
 			children = (
 				62E144DB2C2E2C7C00BD5688 /* MainListView.swift */,
 			);
-			path = ListBlog;
+			path = ListViewExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
