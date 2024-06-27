@@ -49,6 +49,7 @@
 		62D9C6B02C29D64F001A0585 /* FlightArrivalForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9C6AF2C29D64F001A0585 /* FlightArrivalForecast.swift */; };
 		62D9C6B22C29D68D001A0585 /* FlightArrivalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9C6B12C29D68D001A0585 /* FlightArrivalData.swift */; };
 		62D9C6B42C29D719001A0585 /* FlightStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9C6B32C29D719001A0585 /* FlightStatus.swift */; };
+		62E144DC2C2E2C7C00BD5688 /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E144DB2C2E2C7C00BD5688 /* MainListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		62D9C6AF2C29D64F001A0585 /* FlightArrivalForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightArrivalForecast.swift; sourceTree = "<group>"; };
 		62D9C6B12C29D68D001A0585 /* FlightArrivalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightArrivalData.swift; sourceTree = "<group>"; };
 		62D9C6B32C29D719001A0585 /* FlightStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightStatus.swift; sourceTree = "<group>"; };
+		62E144DB2C2E2C7C00BD5688 /* MainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 		629292422C243AA90055D74D /* MediumExamples */ = {
 			isa = PBXGroup;
 			children = (
+				62E144D92C2E2C5700BD5688 /* ListBlog */,
 				62200C542C2A5480007939DD /* VisionPro */,
 				62D284B12C2622A9005AF608 /* App Files */,
 				629292352C243AA90055D74D /* AsyncAwaitBridgeExample */,
@@ -428,6 +431,14 @@
 			path = FlightArrivalForecast;
 			sourceTree = "<group>";
 		};
+		62E144D92C2E2C5700BD5688 /* ListBlog */ = {
+			isa = PBXGroup;
+			children = (
+				62E144DB2C2E2C7C00BD5688 /* MainListView.swift */,
+			);
+			path = ListBlog;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -583,6 +594,7 @@
 				62D9C6A52C29C7A8001A0585 /* ActionsRow.swift in Sources */,
 				62D284A62C25E8A4005AF608 /* CustomDetentView.swift in Sources */,
 				62D284A42C25E844005AF608 /* NavigationContentView.swift in Sources */,
+				62E144DC2C2E2C7C00BD5688 /* MainListView.swift in Sources */,
 				62200C4F2C2A4105007939DD /* MainPreferenceKeyView.swift in Sources */,
 				62D9C6A72C29C7F1001A0585 /* StrokedCapsule.swift in Sources */,
 				62D284B02C261EB6005AF608 /* MainFocustFormView.swift in Sources */,
