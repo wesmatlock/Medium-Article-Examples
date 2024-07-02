@@ -3,7 +3,7 @@ import SwiftUI
 struct MainProgresView: View {
   var body: some View {
     VStack {
-//      BasicProgressView()
+      BasicProgressView()
 //      CustomProgressView()
 //      AnimatedProgressView()
 //      AsyncTaskProgressView()
