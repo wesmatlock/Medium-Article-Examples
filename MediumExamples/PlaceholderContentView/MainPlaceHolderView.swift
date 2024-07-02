@@ -5,9 +5,12 @@ struct MainPlaceHolderView: View {
   var body: some View {
     Group {
       if isLoading {
-        MyPLaceholderView()
-        AnimatedPlaceHolderView()
-        TransitionExampleView()
+        //        MyPLaceholderView()
+        //        AnimatedPlaceHolderView()
+        //        TransitionExampleView()
+        //        AnimatedPlaceholderView()
+//        ShimmerView()
+                ThemedPlaceholderView()
       } else {
         Text("Content Loaded")
       }
@@ -27,14 +30,14 @@ struct MyPLaceholderView: View {
       ForEach(0..<3) { _ in
         HStack {
           Circle()
-            .fill(Color.gray.opacity(0.3))
+            .fill(Color.gray.opacity(0.5))
             .frame(width: 50, height: 50)
           VStack {
             Rectangle()
-              .fill(Color.gray.opacity(0.3))
+              .fill(Color.gray.opacity(0.5))
               .frame(height: 20)
             Rectangle()
-              .fill(Color.gray.opacity(0.3))
+              .fill(Color.gray.opacity(0.5))
               .frame(height: 20)
               .padding(.top, 10)
           }
@@ -103,6 +106,81 @@ struct TransitionExampleView: View {
         withAnimation {
           showDetail.toggle()
         }
+      }
+    }
+  }
+}
+
+struct ShimmerView: View {
+  @State private var shimmer = false
+
+  var body: some View {
+    VStack {
+      ForEach(0..<3) { _ in
+        HStack {
+          Circle()
+            .fill(Color.green.opacity(0.3))
+            .frame(width: 50, height: 50)
+            .modifier(ShimmerEffect())
+          VStack(alignment: .leading) {
+            Rectangle()
+              .fill(Color.green.opacity(0.3))
+              .frame(height: 20)
+              .modifier(ShimmerEffect())
+            Rectangle()
+              .fill(Color.green.opacity(0.3))
+              .frame(height: 20)
+              .padding(.top, 5)
+              .modifier(ShimmerEffect())
+          }
+          .padding(.leading, 10)
+        }
+        .padding()
+      }
+    }
+  }
+}
+
+struct ShimmerEffect: ViewModifier {
+  @State private var startPoint = UnitPoint(x: -1, y: 0.5)
+  @State private var endPoint = UnitPoint(x: 1, y: 0.5)
+
+  func body(content: Content) -> some View {
+    content
+      .overlay(
+        LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0.1), Color.white.opacity(0.5)]), startPoint: startPoint, endPoint: endPoint)
+          .blendMode(.overlay)
+          .mask(content)
+      )
+      .onAppear {
+        withAnimation(Animation.easeInOut(duration: 1.5).repeatForever(autoreverses: false)) {
+          startPoint = UnitPoint(x: 1, y: 0.5)
+          endPoint = UnitPoint(x: -1, y: 0.5)
+        }
+      }
+  }
+}
+
+struct ThemedPlaceholderView: View {
+  var body: some View {
+    VStack {
+      ForEach(0..<3) { _ in
+        HStack {
+          Circle()
+            .fill(Color.blue.opacity(0.3))
+            .frame(width: 50, height: 50)
+          VStack(alignment: .leading) {
+            Rectangle()
+              .fill(Color.blue.opacity(0.3))
+              .frame(height: 20)
+            Rectangle()
+              .fill(Color.blue.opacity(0.3))
+              .frame(height: 20)
+              .padding(.top, 5)
+          }
+          .padding(.leading, 10)
+        }
+        .padding()
       }
     }
   }

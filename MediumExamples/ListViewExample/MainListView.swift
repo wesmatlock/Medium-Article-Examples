@@ -28,10 +28,6 @@ struct MainListView: View {
           .tabItem {
             Label("Search", systemImage: "magnifyingglass")
           }
-//        SwiftDataListView()
-//          .tabItem {
-//            Label("Swift Data", systemImage: "database")
-//          }
       }
     }
 }
@@ -116,21 +112,46 @@ struct ReorderableListView: View {
   @State private var items = ["Apple", "Banana", "Cherry", "Date", "Elderberry"]
 
   var body: some View {
-    List {
-      ForEach(items, id: \.self) { item in
-        Text(item)
+    NavigationView {
+      List {
+        ForEach(items, id: \.self) { item in
+          HStack {
+            Text(item)
+          }
+        }
+        .onMove(perform: move)
       }
-      .onMove(perform: move)
-    }
-    .toolbar {
-      EditButton()
+      .toolbar {
+        EditButton()
+      }
+      .navigationTitle("Reorderable List")
     }
   }
 
   func move(from source: IndexSet, to destination: Int) {
+    print("source: \(source)  =  destination:\(destination)")
     items.move(fromOffsets: source, toOffset: destination)
   }
 }
+//struct ReorderableListView: View {
+//  @State private var items = ["Apple", "Banana", "Cherry", "Date", "Elderberry"]
+//
+//  var body: some View {
+//    List {
+//      ForEach(items, id: \.self) { item in
+//        Text(item)
+//      }
+//      .onMove(perform: move)
+//    }
+//    .toolbar {
+//      EditButton()
+//    }
+//  }
+//
+//  func move(from source: IndexSet, to destination: Int) {
+//    items.move(fromOffsets: source, toOffset: destination)
+//  }
+//}
 
 struct SearchableListView: View {
   @State private var searchText = ""
