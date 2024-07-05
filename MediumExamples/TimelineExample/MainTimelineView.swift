@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MainTimelineView: View {
   var body: some View {
-//    ClockView()
+    //    ClockView()
     CountdownTimerView(endDate: Date().addingTimeInterval(300))
   }
 }
@@ -27,7 +27,7 @@ struct ClockView: View {
     formatter.timeStyle = .medium
     return formatter
   }
-
+  
   private var dateOnlyFormatter: DateFormatter {
     let formatter = DateFormatter()
     formatter.dateStyle = .medium

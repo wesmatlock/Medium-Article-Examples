@@ -17,7 +17,17 @@ struct SynchronizedSizeKey: PreferenceKey {
 
 struct SynchronizedView: View {
   var body: some View {
-    Text("Synchronized")
+    Text("Synchronized View")
+      .padding()
+      .background(GeometryReader { geometry in
+        Color.clear.preference(key: SynchronizedSizeKey.self, value: geometry.size)
+      })
+  }
+}
+
+struct SynchronizedViewTwo: View {
+  var body: some View {
+    Text("Synchronized View Two")
       .padding()
       .background(GeometryReader { geometry in
         Color.clear.preference(key: SynchronizedSizeKey.self, value: geometry.size)
@@ -31,7 +41,7 @@ struct CoordinatedParentView: View {
   var body: some View {
     VStack {
       SynchronizedView()
-      SynchronizedView()
+      SynchronizedViewTwo()
       Text("Size: \(synchronizedSize.width) x \(synchronizedSize.height)")
     }
     .onPreferenceChange(SynchronizedSizeKey.self) { value in

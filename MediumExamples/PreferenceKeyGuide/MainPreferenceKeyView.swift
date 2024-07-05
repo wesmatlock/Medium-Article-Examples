@@ -42,7 +42,27 @@ struct TotalWidthKey: PreferenceKey {
 
 struct ChildView: View {
   var body: some View {
-    Text("Child")
+    Text("Child View")
+      .padding()
+      .background(GeometryReader { geometry in
+        Color.clear.preference(key: TotalWidthKey.self, value: geometry.size.width)
+      })
+  }
+}
+
+struct ChildViewTwo: View {
+  var body: some View {
+    Text("Child View Two")
+      .padding()
+      .background(GeometryReader { geometry in
+        Color.clear.preference(key: TotalWidthKey.self, value: geometry.size.width)
+      })
+  }
+}
+
+struct ChildViewThree: View {
+  var body: some View {
+    Text("Child View Three")
       .padding()
       .background(GeometryReader { geometry in
         Color.clear.preference(key: TotalWidthKey.self, value: geometry.size.width)
@@ -56,8 +76,8 @@ struct ParentView: View {
   var body: some View {
     VStack {
       ChildView()
-      ChildView()
-      ChildView()
+      ChildViewTwo()
+      ChildViewThree()
       Text("Total Width: \(totalWidth)")
     }
     .onPreferenceChange(TotalWidthKey.self) { value in
