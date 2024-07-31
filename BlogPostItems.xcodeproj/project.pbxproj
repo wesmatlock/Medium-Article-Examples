@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		621B3C4E2C38140900DD3495 /* MainGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621B3C4D2C38140900DD3495 /* MainGestureView.swift */; };
 		621CF13F2C28A7F3001ADFD5 /* FlightInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621CF13E2C28A7F3001ADFD5 /* FlightInfo.swift */; };
 		621CF1412C28A820001ADFD5 /* AirportAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621CF1402C28A820001ADFD5 /* AirportAnnotation.swift */; };
 		621CF1432C28A91F001ADFD5 /* CLLocationCoordinate2D+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621CF1422C28A91F001ADFD5 /* CLLocationCoordinate2D+SampleData.swift */; };
@@ -33,6 +34,7 @@
 		629292492C243AA90055D74D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629292412C243AA90055D74D /* ContentView.swift */; };
 		6292924A2C243AA90055D74D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6292923E2C243AA90055D74D /* Assets.xcassets */; };
 		6292924B2C243AA90055D74D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6292923A2C243AA90055D74D /* Preview Assets.xcassets */; };
+		629651B42C5AC70B00E81EF7 /* MainDynamicTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629651B32C5AC70B00E81EF7 /* MainDynamicTypeView.swift */; };
 		62AC69562C338F9E00170AE9 /* MainProgresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AC69552C338F9E00170AE9 /* MainProgresView.swift */; };
 		62CF26A42C28961200399CA3 /* DepartureAndArrivalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CF26A32C28961200399CA3 /* DepartureAndArrivalDetailView.swift */; };
 		62CF26A62C28961D00399CA3 /* DetailAndArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CF26A52C28961D00399CA3 /* DetailAndArrivalViewModel.swift */; };
@@ -43,7 +45,7 @@
 		62D284A82C25E9EE005AF608 /* AdvancedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D284A72C25E9EE005AF608 /* AdvancedContentView.swift */; };
 		62D284AA2C25F099005AF608 /* MainModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D284A92C25F099005AF608 /* MainModifierView.swift */; };
 		62D284AD2C260261005AF608 /* MainPlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D284AC2C260261005AF608 /* MainPlaceHolderView.swift */; };
-		62D284B02C261EB6005AF608 /* MainFocustFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D284AF2C261EB6005AF608 /* MainFocustFormView.swift */; };
+		62D284B02C261EB6005AF608 /* MainFocusFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D284AF2C261EB6005AF608 /* MainFocusFormView.swift */; };
 		62D9C6A52C29C7A8001A0585 /* ActionsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9C6A42C29C7A8001A0585 /* ActionsRow.swift */; };
 		62D9C6A72C29C7F1001A0585 /* StrokedCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9C6A62C29C7F1001A0585 /* StrokedCapsule.swift */; };
 		62D9C6AA2C29CB1C001A0585 /* GateDepartureBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9C6A92C29CB1C001A0585 /* GateDepartureBanner.swift */; };
@@ -73,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		620B60B12C243B2500F4FB81 /* BlogPostItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostItemsTests.swift; sourceTree = "<group>"; };
+		621B3C4D2C38140900DD3495 /* MainGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGestureView.swift; sourceTree = "<group>"; };
 		621CF13E2C28A7F3001ADFD5 /* FlightInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfo.swift; sourceTree = "<group>"; };
 		621CF1402C28A820001ADFD5 /* AirportAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportAnnotation.swift; sourceTree = "<group>"; };
 		621CF1422C28A91F001ADFD5 /* CLLocationCoordinate2D+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+SampleData.swift"; sourceTree = "<group>"; };
@@ -99,6 +102,7 @@
 		6292923E2C243AA90055D74D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		629292402C243AA90055D74D /* BlogPostItemsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostItemsApp.swift; sourceTree = "<group>"; };
 		629292412C243AA90055D74D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		629651B32C5AC70B00E81EF7 /* MainDynamicTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDynamicTypeView.swift; sourceTree = "<group>"; };
 		62AC69552C338F9E00170AE9 /* MainProgresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProgresView.swift; sourceTree = "<group>"; };
 		62CEDF852C2372BD00FBBB77 /* BlogPostItems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlogPostItems.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CEDF962C2372BE00FBBB77 /* BlogPostItemsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlogPostItemsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,7 +117,7 @@
 		62D284A72C25E9EE005AF608 /* AdvancedContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedContentView.swift; sourceTree = "<group>"; };
 		62D284A92C25F099005AF608 /* MainModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModifierView.swift; sourceTree = "<group>"; };
 		62D284AC2C260261005AF608 /* MainPlaceHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPlaceHolderView.swift; sourceTree = "<group>"; };
-		62D284AF2C261EB6005AF608 /* MainFocustFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFocustFormView.swift; sourceTree = "<group>"; };
+		62D284AF2C261EB6005AF608 /* MainFocusFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFocusFormView.swift; sourceTree = "<group>"; };
 		62D9C6A42C29C7A8001A0585 /* ActionsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsRow.swift; sourceTree = "<group>"; };
 		62D9C6A62C29C7F1001A0585 /* StrokedCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokedCapsule.swift; sourceTree = "<group>"; };
 		62D9C6A92C29CB1C001A0585 /* GateDepartureBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GateDepartureBanner.swift; sourceTree = "<group>"; };
@@ -155,6 +159,14 @@
 				620B60B12C243B2500F4FB81 /* BlogPostItemsTests.swift */,
 			);
 			path = MediumExamplesTests;
+			sourceTree = "<group>";
+		};
+		621B3C4C2C3813EE00DD3495 /* GesturesGuide */ = {
+			isa = PBXGroup;
+			children = (
+				621B3C4D2C38140900DD3495 /* MainGestureView.swift */,
+			);
+			path = GesturesGuide;
 			sourceTree = "<group>";
 		};
 		621CF14A2C2904D6001ADFD5 /* FlightDetails */ = {
@@ -254,25 +266,35 @@
 		629292422C243AA90055D74D /* MediumExamples */ = {
 			isa = PBXGroup;
 			children = (
-				62521D5E2C34B0DA009F2452 /* TimelineExample */,
-				62AC69542C338F7F00170AE9 /* ProgressViewExamples */,
-				62E144D92C2E2C5700BD5688 /* ListViewExample */,
-				62200C542C2A5480007939DD /* VisionPro */,
+				629651B22C5AC6A100E81EF7 /* DynamicType */,
 				62D284B12C2622A9005AF608 /* App Files */,
 				629292352C243AA90055D74D /* AsyncAwaitBridgeExample */,
 				62CF269A2C2856CA00399CA3 /* FlightTracker */,
 				62D284AE2C261E97005AF608 /* FocusState */,
+				621B3C4C2C3813EE00DD3495 /* GesturesGuide */,
+				62E144D92C2E2C5700BD5688 /* ListViewExample */,
 				62D284A02C25C28E005AF608 /* MediumExamples.entitlements */,
 				629292392C243AA90055D74D /* NetworkManagerExample */,
 				62D284AB2C25F7C0005AF608 /* PlaceholderContentView */,
 				62200C4B2C2A408F007939DD /* PreferenceKeyGuide */,
 				62D2849D2C25BF9A005AF608 /* PresentationDetent */,
 				6292923B2C243AA90055D74D /* Preview Content */,
+				62AC69542C338F7F00170AE9 /* ProgressViewExamples */,
 				6278CB1E2C243BA8009612EB /* ScanninTextUsingCamera */,
+				62521D5E2C34B0DA009F2452 /* TimelineExample */,
 				6292923D2C243AA90055D74D /* URLCacheExample */,
 				6278CB252C243F4D009612EB /* ViewModifiers */,
+				62200C542C2A5480007939DD /* VisionPro */,
 			);
 			path = MediumExamples;
+			sourceTree = "<group>";
+		};
+		629651B22C5AC6A100E81EF7 /* DynamicType */ = {
+			isa = PBXGroup;
+			children = (
+				629651B32C5AC70B00E81EF7 /* MainDynamicTypeView.swift */,
+			);
+			path = DynamicType;
 			sourceTree = "<group>";
 		};
 		62AC69542C338F7F00170AE9 /* ProgressViewExamples */ = {
@@ -406,7 +428,7 @@
 		62D284AE2C261E97005AF608 /* FocusState */ = {
 			isa = PBXGroup;
 			children = (
-				62D284AF2C261EB6005AF608 /* MainFocustFormView.swift */,
+				62D284AF2C261EB6005AF608 /* MainFocusFormView.swift */,
 			);
 			path = FocusState;
 			sourceTree = "<group>";
@@ -611,6 +633,7 @@
 				629292462C243AA90055D74D /* CachedNetwork.swift in Sources */,
 				629292472C243AA90055D74D /* NetworkExampleView.swift in Sources */,
 				62200C5B2C2ADAEE007939DD /* InteractivePhotoGallery.swift in Sources */,
+				629651B42C5AC70B00E81EF7 /* MainDynamicTypeView.swift in Sources */,
 				629292482C243AA90055D74D /* AsyncAwaitBridge.swift in Sources */,
 				62D2849F2C25BFB3005AF608 /* MainPresentationDetent.swift in Sources */,
 				62D9C6A52C29C7A8001A0585 /* ActionsRow.swift in Sources */,
@@ -619,7 +642,7 @@
 				62E144DC2C2E2C7C00BD5688 /* MainListView.swift in Sources */,
 				62200C4F2C2A4105007939DD /* MainPreferenceKeyView.swift in Sources */,
 				62D9C6A72C29C7F1001A0585 /* StrokedCapsule.swift in Sources */,
-				62D284B02C261EB6005AF608 /* MainFocustFormView.swift in Sources */,
+				62D284B02C261EB6005AF608 /* MainFocusFormView.swift in Sources */,
 				629292492C243AA90055D74D /* ContentView.swift in Sources */,
 				62D284A22C25C5B0005AF608 /* DynamicContentSheetView.swift in Sources */,
 				6278CB202C243C1E009612EB /* CameraView.swift in Sources */,
@@ -634,6 +657,7 @@
 				62D9C6B42C29D719001A0585 /* FlightStatus.swift in Sources */,
 				6278CB222C243CDA009612EB /* CreditCardScannerView.swift in Sources */,
 				621CF1452C28FE5E001ADFD5 /* LocationUtilities.swift in Sources */,
+				621B3C4E2C38140900DD3495 /* MainGestureView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

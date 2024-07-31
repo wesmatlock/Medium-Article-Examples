@@ -1,6 +1,6 @@
 import SwiftUI
 #if os(iOS)
-struct MainFocustFormView: View {
+struct MainFocusFormView: View {
   @State private var formState = FormState()
   @FocusState private var focusField: FormField?
 
@@ -100,6 +100,6 @@ struct FormState {
 
 // MARK: - Preview
 #Preview {
-  MainFocustFormView()
+  MainFocusFormView()
 }
 #endif
