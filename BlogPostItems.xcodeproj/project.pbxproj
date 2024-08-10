@@ -35,6 +35,8 @@
 		6292924A2C243AA90055D74D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6292923E2C243AA90055D74D /* Assets.xcassets */; };
 		6292924B2C243AA90055D74D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6292923A2C243AA90055D74D /* Preview Assets.xcassets */; };
 		629651B42C5AC70B00E81EF7 /* MainDynamicTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629651B32C5AC70B00E81EF7 /* MainDynamicTypeView.swift */; };
+		629651EE2C5C08CE00E81EF7 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629651ED2C5C08CE00E81EF7 /* MainTabView.swift */; };
+		629651F02C5C766100E81EF7 /* AdvancedTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629651EF2C5C766100E81EF7 /* AdvancedTabView.swift */; };
 		62AC69562C338F9E00170AE9 /* MainProgresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AC69552C338F9E00170AE9 /* MainProgresView.swift */; };
 		62CF26A42C28961200399CA3 /* DepartureAndArrivalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CF26A32C28961200399CA3 /* DepartureAndArrivalDetailView.swift */; };
 		62CF26A62C28961D00399CA3 /* DetailAndArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CF26A52C28961D00399CA3 /* DetailAndArrivalViewModel.swift */; };
@@ -103,6 +105,8 @@
 		629292402C243AA90055D74D /* BlogPostItemsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostItemsApp.swift; sourceTree = "<group>"; };
 		629292412C243AA90055D74D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		629651B32C5AC70B00E81EF7 /* MainDynamicTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDynamicTypeView.swift; sourceTree = "<group>"; };
+		629651ED2C5C08CE00E81EF7 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		629651EF2C5C766100E81EF7 /* AdvancedTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedTabView.swift; sourceTree = "<group>"; };
 		62AC69552C338F9E00170AE9 /* MainProgresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProgresView.swift; sourceTree = "<group>"; };
 		62CEDF852C2372BD00FBBB77 /* BlogPostItems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlogPostItems.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CEDF962C2372BE00FBBB77 /* BlogPostItemsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlogPostItemsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +270,7 @@
 		629292422C243AA90055D74D /* MediumExamples */ = {
 			isa = PBXGroup;
 			children = (
+				629651EC2C5C08B800E81EF7 /* TabViewTipTricks */,
 				629651B22C5AC6A100E81EF7 /* DynamicType */,
 				62D284B12C2622A9005AF608 /* App Files */,
 				629292352C243AA90055D74D /* AsyncAwaitBridgeExample */,
@@ -295,6 +300,15 @@
 				629651B32C5AC70B00E81EF7 /* MainDynamicTypeView.swift */,
 			);
 			path = DynamicType;
+			sourceTree = "<group>";
+		};
+		629651EC2C5C08B800E81EF7 /* TabViewTipTricks */ = {
+			isa = PBXGroup;
+			children = (
+				629651ED2C5C08CE00E81EF7 /* MainTabView.swift */,
+				629651EF2C5C766100E81EF7 /* AdvancedTabView.swift */,
+			);
+			path = TabViewTipTricks;
 			sourceTree = "<group>";
 		};
 		62AC69542C338F7F00170AE9 /* ProgressViewExamples */ = {
@@ -622,6 +636,8 @@
 				62CF26A42C28961200399CA3 /* DepartureAndArrivalDetailView.swift in Sources */,
 				62D9C6AD2C29D3C3001A0585 /* SeatDetails.swift in Sources */,
 				621CF1472C28FEDD001ADFD5 /* Double+Radians.swift in Sources */,
+				629651F02C5C766100E81EF7 /* AdvancedTabView.swift in Sources */,
+				629651EE2C5C08CE00E81EF7 /* MainTabView.swift in Sources */,
 				62200C512C2A4153007939DD /* DynamicHeaderView.swift in Sources */,
 				62CF26A62C28961D00399CA3 /* DetailAndArrivalViewModel.swift in Sources */,
 				621CF13F2C28A7F3001ADFD5 /* FlightInfo.swift in Sources */,
