@@ -4,9 +4,9 @@ struct ContentView: View {
   var body: some View {
     VStack {
 //      MainListView()
-//      MainFocusFormView()
+      MainFocusFormView()
 //      MainPlaceHolderView()
-      MainTabView()
+//      MainTabView()
     }
     .padding()
   }
