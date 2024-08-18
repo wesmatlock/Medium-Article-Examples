@@ -3,8 +3,9 @@ import SwiftUI
 struct ContentView: View {
   var body: some View {
     VStack {
+      CameraScanView()
 //      MainListView()
-      MainFocusFormView()
+//      MainFocusFormView()
 //      MainPlaceHolderView()
 //      MainTabView()
     }

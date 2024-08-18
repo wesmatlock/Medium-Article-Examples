@@ -1,11 +1,10 @@
 import SwiftUI
 
-#if os(iOS)
 struct CameraScanView: View {
   @State private var creditCardNumber: String = ""
 
   var body: some View {
-    VStack {
+    ZStack {
       CreditCardScannerView { cardNumber in
         self.creditCardNumber = cardNumber
       }
@@ -15,6 +14,7 @@ struct CameraScanView: View {
         Text("Detected Credit Card Number: \(creditCardNumber)")
           .padding()
           .background(Color.white)
+          .foregroundStyle(.black)
           .cornerRadius(10)
           .shadow(radius: 10)
           .padding()
@@ -22,4 +22,3 @@ struct CameraScanView: View {
     }
   }
 }
-#endif

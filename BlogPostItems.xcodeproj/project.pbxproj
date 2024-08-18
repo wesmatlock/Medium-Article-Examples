@@ -35,7 +35,6 @@
 		6251E1032C68388C009E12AD /* SwiftSyntax in Frameworks */ = {isa = PBXBuildFile; productRef = 6251E1022C68388C009E12AD /* SwiftSyntax */; };
 		6251E1052C68388C009E12AD /* SwiftSyntaxBuilder in Frameworks */ = {isa = PBXBuildFile; productRef = 6251E1042C68388C009E12AD /* SwiftSyntaxBuilder */; };
 		62521D602C34B0F0009F2452 /* MainTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62521D5F2C34B0F0009F2452 /* MainTimelineView.swift */; };
-		6278CB202C243C1E009612EB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6278CB1F2C243C1E009612EB /* CameraView.swift */; };
 		6278CB222C243CDA009612EB /* CreditCardScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6278CB212C243CDA009612EB /* CreditCardScannerView.swift */; };
 		6278CB242C243D9E009612EB /* CameraScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6278CB232C243D9E009612EB /* CameraScanView.swift */; };
 		629292432C243AA90055D74D /* NetworkExampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629292372C243AA90055D74D /* NetworkExampleViewModel.swift */; };
@@ -112,7 +111,6 @@
 		62200C5A2C2ADAEE007939DD /* InteractivePhotoGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractivePhotoGallery.swift; sourceTree = "<group>"; };
 		62200C5C2C2B0F45007939DD /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		62521D5F2C34B0F0009F2452 /* MainTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTimelineView.swift; sourceTree = "<group>"; };
-		6278CB1F2C243C1E009612EB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		6278CB212C243CDA009612EB /* CreditCardScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardScannerView.swift; sourceTree = "<group>"; };
 		6278CB232C243D9E009612EB /* CameraScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScanView.swift; sourceTree = "<group>"; };
 		629292342C243AA90055D74D /* AsyncAwaitBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitBridge.swift; sourceTree = "<group>"; };
@@ -254,7 +252,6 @@
 		6278CB1E2C243BA8009612EB /* ScanninTextUsingCamera */ = {
 			isa = PBXGroup;
 			children = (
-				6278CB1F2C243C1E009612EB /* CameraView.swift */,
 				6278CB212C243CDA009612EB /* CreditCardScannerView.swift */,
 				6278CB232C243D9E009612EB /* CameraScanView.swift */,
 			);
@@ -719,7 +716,6 @@
 				62D284B02C261EB6005AF608 /* MainFocusFormView.swift in Sources */,
 				629292492C243AA90055D74D /* ContentView.swift in Sources */,
 				62D284A22C25C5B0005AF608 /* DynamicContentSheetView.swift in Sources */,
-				6278CB202C243C1E009612EB /* CameraView.swift in Sources */,
 				62200C532C2A4220007939DD /* SyncronizedView.swift in Sources */,
 				62D8F7EE2C6E2370001D5B66 /* LoggedPropertyWrapper.swift in Sources */,
 				621CF1412C28A820001ADFD5 /* AirportAnnotation.swift in Sources */,
