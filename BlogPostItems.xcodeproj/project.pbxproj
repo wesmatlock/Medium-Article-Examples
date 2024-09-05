@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		620928702C6F928700B9CBF0 /* ThreadSafeProppertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6209286F2C6F928700B9CBF0 /* ThreadSafeProppertyWrapper.swift */; };
 		620928722C6F9A2C00B9CBF0 /* LazyPropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620928712C6F9A2C00B9CBF0 /* LazyPropertyWrappers.swift */; };
+		620DF0782C89E85400FE1DD3 /* BasicDropdownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620DF0772C89E85400FE1DD3 /* BasicDropdownMenu.swift */; };
+		620DF07C2C89EAF700FE1DD3 /* MainDropmainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620DF07B2C89EAF700FE1DD3 /* MainDropmainMenu.swift */; };
+		620DF0802C89EBAB00FE1DD3 /* DropdownMenuDisclosureGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620DF07F2C89EBAB00FE1DD3 /* DropdownMenuDisclosureGroup.swift */; };
+		620DF0822C89EE2100FE1DD3 /* AdvancedDropdownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620DF0812C89EE2100FE1DD3 /* AdvancedDropdownMenu.swift */; };
+		620DF0842C8A011A00FE1DD3 /* AnimatedDropdownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620DF0832C8A011A00FE1DD3 /* AnimatedDropdownMenu.swift */; };
+		620DF0882C8A053700FE1DD3 /* SearchableDropdownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620DF0872C8A053700FE1DD3 /* SearchableDropdownMenu.swift */; };
+		620DF08A2C8A05A600FE1DD3 /* MultiSelectDropdownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620DF0892C8A05A600FE1DD3 /* MultiSelectDropdownMenu.swift */; };
 		621B3C4E2C38140900DD3495 /* MainGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621B3C4D2C38140900DD3495 /* MainGestureView.swift */; };
 		621CF13F2C28A7F3001ADFD5 /* FlightInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621CF13E2C28A7F3001ADFD5 /* FlightInfo.swift */; };
 		621CF1412C28A820001ADFD5 /* AirportAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621CF1402C28A820001ADFD5 /* AirportAnnotation.swift */; };
@@ -105,6 +112,13 @@
 		6209286F2C6F928700B9CBF0 /* ThreadSafeProppertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeProppertyWrapper.swift; sourceTree = "<group>"; };
 		620928712C6F9A2C00B9CBF0 /* LazyPropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyPropertyWrappers.swift; sourceTree = "<group>"; };
 		620B60B12C243B2500F4FB81 /* BlogPostItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostItemsTests.swift; sourceTree = "<group>"; };
+		620DF0772C89E85400FE1DD3 /* BasicDropdownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDropdownMenu.swift; sourceTree = "<group>"; };
+		620DF07B2C89EAF700FE1DD3 /* MainDropmainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDropmainMenu.swift; sourceTree = "<group>"; };
+		620DF07F2C89EBAB00FE1DD3 /* DropdownMenuDisclosureGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownMenuDisclosureGroup.swift; sourceTree = "<group>"; };
+		620DF0812C89EE2100FE1DD3 /* AdvancedDropdownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedDropdownMenu.swift; sourceTree = "<group>"; };
+		620DF0832C8A011A00FE1DD3 /* AnimatedDropdownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedDropdownMenu.swift; sourceTree = "<group>"; };
+		620DF0872C8A053700FE1DD3 /* SearchableDropdownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableDropdownMenu.swift; sourceTree = "<group>"; };
+		620DF0892C8A05A600FE1DD3 /* MultiSelectDropdownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectDropdownMenu.swift; sourceTree = "<group>"; };
 		621B3C4D2C38140900DD3495 /* MainGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGestureView.swift; sourceTree = "<group>"; };
 		621CF13E2C28A7F3001ADFD5 /* FlightInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfo.swift; sourceTree = "<group>"; };
 		621CF1402C28A820001ADFD5 /* AirportAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportAnnotation.swift; sourceTree = "<group>"; };
@@ -217,6 +231,20 @@
 			path = MediumExamplesTests;
 			sourceTree = "<group>";
 		};
+		620DF0762C89E83A00FE1DD3 /* DropdownMenus */ = {
+			isa = PBXGroup;
+			children = (
+				620DF0772C89E85400FE1DD3 /* BasicDropdownMenu.swift */,
+				620DF07B2C89EAF700FE1DD3 /* MainDropmainMenu.swift */,
+				620DF0892C8A05A600FE1DD3 /* MultiSelectDropdownMenu.swift */,
+				620DF0872C8A053700FE1DD3 /* SearchableDropdownMenu.swift */,
+				620DF07F2C89EBAB00FE1DD3 /* DropdownMenuDisclosureGroup.swift */,
+				620DF0812C89EE2100FE1DD3 /* AdvancedDropdownMenu.swift */,
+				620DF0832C8A011A00FE1DD3 /* AnimatedDropdownMenu.swift */,
+			);
+			path = DropdownMenus;
+			sourceTree = "<group>";
+		};
 		621B3C4C2C3813EE00DD3495 /* GesturesGuide */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +349,7 @@
 		629292422C243AA90055D74D /* MediumExamples */ = {
 			isa = PBXGroup;
 			children = (
+				620DF0762C89E83A00FE1DD3 /* DropdownMenus */,
 				62F2B9E12C7D516F000AB2D4 /* TableExample */,
 				62FD0FAD2C6A512E003C2794 /* PropertyWrappers */,
 				629651EC2C5C08B800E81EF7 /* TabViewTipTricks */,
@@ -726,6 +755,7 @@
 				621CF14C2C2904E6001ADFD5 /* FlightDetails.swift in Sources */,
 				629292432C243AA90055D74D /* NetworkExampleViewModel.swift in Sources */,
 				629292442C243AA90055D74D /* BlogPostItemsApp.swift in Sources */,
+				620DF07C2C89EAF700FE1DD3 /* MainDropmainMenu.swift in Sources */,
 				621CF1432C28A91F001ADFD5 /* CLLocationCoordinate2D+SampleData.swift in Sources */,
 				62F2B9E82C7D52DA000AB2D4 /* CustomRowBackgroundView.swift in Sources */,
 				62CF26A42C28961200399CA3 /* DepartureAndArrivalDetailView.swift in Sources */,
@@ -734,12 +764,16 @@
 				62F2B9EA2C7D5658000AB2D4 /* ConditionalRowStylingView.swift in Sources */,
 				62F2B9E52C7D51B5000AB2D4 /* CustomAppearance.swift in Sources */,
 				62F2B9F22C7E882D000AB2D4 /* AnimatingRowChangesView.swift in Sources */,
+				620DF0802C89EBAB00FE1DD3 /* DropdownMenuDisclosureGroup.swift in Sources */,
 				629651F02C5C766100E81EF7 /* AdvancedTabView.swift in Sources */,
 				629651EE2C5C08CE00E81EF7 /* MainTabView.swift in Sources */,
+				620DF0842C8A011A00FE1DD3 /* AnimatedDropdownMenu.swift in Sources */,
 				62200C512C2A4153007939DD /* DynamicHeaderView.swift in Sources */,
 				62CF26A62C28961D00399CA3 /* DetailAndArrivalViewModel.swift in Sources */,
+				620DF08A2C8A05A600FE1DD3 /* MultiSelectDropdownMenu.swift in Sources */,
 				621CF13F2C28A7F3001ADFD5 /* FlightInfo.swift in Sources */,
 				629292452C243AA90055D74D /* NetworkManager.swift in Sources */,
+				620DF0822C89EE2100FE1DD3 /* AdvancedDropdownMenu.swift in Sources */,
 				62D8F7F02C6E25D6001D5B66 /* FetchPropertyWrapper.swift in Sources */,
 				620928702C6F928700B9CBF0 /* ThreadSafeProppertyWrapper.swift in Sources */,
 				62F2B9F42C7F63D9000AB2D4 /* testTableView.swift in Sources */,
@@ -751,6 +785,7 @@
 				629292462C243AA90055D74D /* CachedNetwork.swift in Sources */,
 				629292472C243AA90055D74D /* NetworkExampleView.swift in Sources */,
 				62F2B9EC2C7E086F000AB2D4 /* CustomRowViewExample.swift in Sources */,
+				620DF0782C89E85400FE1DD3 /* BasicDropdownMenu.swift in Sources */,
 				62D8F7EC2C6E22C0001D5B66 /* PropertyWrapperExample2.swift in Sources */,
 				62200C5B2C2ADAEE007939DD /* InteractivePhotoGallery.swift in Sources */,
 				629651B42C5AC70B00E81EF7 /* MainDynamicTypeView.swift in Sources */,
@@ -771,6 +806,7 @@
 				62D8F7EE2C6E2370001D5B66 /* LoggedPropertyWrapper.swift in Sources */,
 				621CF1412C28A820001ADFD5 /* AirportAnnotation.swift in Sources */,
 				62D284AD2C260261005AF608 /* MainPlaceHolderView.swift in Sources */,
+				620DF0882C8A053700FE1DD3 /* SearchableDropdownMenu.swift in Sources */,
 				62521D602C34B0F0009F2452 /* MainTimelineView.swift in Sources */,
 				62D9C6B02C29D64F001A0585 /* FlightArrivalForecast.swift in Sources */,
 				6278CB242C243D9E009612EB /* CameraScanView.swift in Sources */,

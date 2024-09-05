@@ -1,4 +1,5 @@
 import SwiftUI
+
 #if os(iOS)
 struct MainFocusFormView: View {
   @State private var formState = FormState()
