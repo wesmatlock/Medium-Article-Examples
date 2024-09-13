@@ -12,6 +12,7 @@ struct RouteOption: Identifiable {
   let id = UUID()
   let distanceType: RouteDistanceType
   let polyline: MKPolyline
+  let distance: CLLocationDistance  // Distance in meters
 }
 
 // Location Manager to Handle Permissions and Location Updates
@@ -195,11 +196,25 @@ func generateCircularRoutes(from startingLocation: CLLocationCoordinate2D) async
     // Combine all polylines into a single polyline to represent the complete route
     if !routePolylines.isEmpty {
       let combinedPolyline = combinePolylines(routePolylines)
-      routeOptions.append(RouteOption(distanceType: distanceType, polyline: combinedPolyline))
+      let distance = combinedPolyline.length()  // Calculate total distance
+      let distanceType = determineDistanceType(distance: distance)  // Determine distance type
+      routeOptions.append(RouteOption(distanceType: distanceType, polyline: combinedPolyline, distance: distance))
     }
   }
 
   return routeOptions
+}
+
+// Determine Route Distance Type
+func determineDistanceType(distance: CLLocationDistance) -> RouteDistanceType {
+  let distanceInMiles = distance / 1609.34  // Convert meters to miles
+  if distanceInMiles < 1.1 {
+    return .short
+  } else if distanceInMiles <= 3.0 {
+    return .medium
+  } else {
+    return .long
+  }
 }
 
 func combinePolylines(_ polylines: [MKPolyline]) -> MKPolyline {
@@ -241,5 +256,17 @@ extension MKPolyline {
     var coords = [CLLocationCoordinate2D](repeating: kCLLocationCoordinate2DInvalid, count: pointCount)
     getCoordinates(&coords, range: NSRange(location: 0, length: pointCount))
     return coords
+  }
+
+  // Calculate the total length of the polyline
+  func length() -> CLLocationDistance {
+    var totalDistance: CLLocationDistance = 0
+    let coordinates = self.coordinates
+    for i in 0..<coordinates.count - 1 {
+      let start = CLLocation(latitude: coordinates[i].latitude, longitude: coordinates[i].longitude)
+      let end = CLLocation(latitude: coordinates[i + 1].latitude, longitude: coordinates[i + 1].longitude)
+      totalDistance += start.distance(from: end)
+    }
+    return totalDistance
   }
 }
