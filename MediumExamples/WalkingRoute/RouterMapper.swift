@@ -2,9 +2,27 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
+// MARK: - Enums and Structs
+
 // Enum for Route Distance Type
-enum RouteDistanceType {
-  case short, medium, long
+enum RouteDistanceType: String, CaseIterable, Identifiable {
+  case short = "Short"
+  case medium = "Medium"
+  case long = "Long"
+
+  var id: String { self.rawValue }
+
+  // Desired distance in meters
+  var desiredDistance: CLLocationDistance {
+    switch self {
+    case .short:
+      return 1000 // 1 km
+    case .medium:
+      return 5000 // 5 km
+    case .long:
+      return 10000 // 10 km
+    }
+  }
 }
 
 // Struct for Route Option
@@ -13,22 +31,45 @@ struct RouteOption: Identifiable {
   let distanceType: RouteDistanceType
   let polyline: MKPolyline
   let distance: CLLocationDistance  // Distance in meters
+
+  // Computed property to get stroke color based on distance type
+  var strokeColor: UIColor {
+    switch distanceType {
+    case .short:
+      return UIColor.green
+    case .medium:
+      return UIColor.purple
+    case .long:
+      return UIColor.red
+    }
+  }
 }
+
+// ErrorMessage Struct
+struct ErrorMessage: Identifiable {
+  let id = UUID()
+  let message: String
+}
+
+// MARK: - Location Manager
 
 // Location Manager to Handle Permissions and Location Updates
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
   private let locationManager = CLLocationManager()
 
   @Published var userLocation: CLLocationCoordinate2D?
+  private var lastUpdatedLocation: CLLocationCoordinate2D?
+  private let updateThreshold: CLLocationDistance = 50 // meters
 
   override init() {
     super.init()
     locationManager.delegate = self
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+    locationManager.distanceFilter = 50 // Update every 50 meters
     requestLocationPermission()
   }
 
-  private func requestLocationPermission() {
+  func requestLocationPermission() {
     locationManager.requestWhenInUseAuthorization()
   }
 
@@ -36,7 +77,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     switch status {
     case .authorizedAlways, .authorizedWhenInUse:
       print("Location access granted.")
-      locationManager.startUpdatingLocation()
+      locationManager.requestLocation()
     case .denied, .restricted:
       print("Location access denied or restricted.")
     default:
@@ -44,8 +85,21 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
   }
 
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    print("Failed to get user location: \(error.localizedDescription)")
+  }
+
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     if let location = locations.last {
+      if let lastLocation = lastUpdatedLocation {
+        let distance = CLLocation(latitude: lastLocation.latitude, longitude: lastLocation.longitude)
+          .distance(from: CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))
+        if distance < updateThreshold {
+          // Ignore insignificant movements
+          return
+        }
+      }
+      lastUpdatedLocation = location.coordinate
       DispatchQueue.main.async {
         self.userLocation = location.coordinate
       }
@@ -53,42 +107,100 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
   }
 }
 
+// MARK: - SwiftUI Views
+
 // SwiftUI View to Display Routes
 struct RoutesMapView: View {
   @StateObject private var locationManager = LocationManager()
   @State private var routes: [RouteOption] = []
   @State private var region = MKCoordinateRegion(
-    center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
+    center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
     span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
   )
-  @State private var userTrackingMode: MapUserTrackingMode = .follow  // User tracking mode state
+  @State private var isLoading = false
+  @State private var errorMessage: ErrorMessage?
+  @State private var selectedDistanceType: RouteDistanceType?
 
   var body: some View {
     VStack {
       if let userLocation = locationManager.userLocation {
-        // Use MKMapViewWrapper to manage overlays directly
-        MKMapViewWrapper(region: $region, routes: routes)
-          .onAppear {
-            region.center = userLocation
-            Task {
-              let generatedRoutes = await generateCircularRoutes(from: userLocation)
-              DispatchQueue.main.async {
-                self.routes = generatedRoutes
-                adjustRegion()
+        VStack {
+          Text("Select a route distance:")
+            .font(.headline)
+            .padding(.top)
+
+          HStack {
+            ForEach(RouteDistanceType.allCases) { distanceType in
+              Button(action: {
+                selectRoute(distanceType: distanceType)
+              }) {
+                Text(distanceType.rawValue)
+                  .padding()
+                  .frame(maxWidth: .infinity)
+                  .background(selectedDistanceType == distanceType ? Color.gray.opacity(0.3) : Color.clear)
+                  .cornerRadius(8)
               }
             }
           }
+          .padding([.leading, .trailing])
+
+          if isLoading {
+            ProgressView("Generating route...")
+              .padding()
+          } else if let route = routes.first {
+            MapViewWrapper(region: $region, routes: [route])
+              .edgesIgnoringSafeArea(.all)
+          } else {
+            Text("No route selected.")
+              .padding()
+          }
+        }
       } else {
         Text("Waiting for location...")
           .padding()
       }
     }
+    .alert(item: $errorMessage) { error in
+      Alert(title: Text("Error"), message: Text(error.message), dismissButton: .default(Text("OK")))
+    }
+    .onAppear {
+      // Request location when the view appears
+      locationManager.requestLocationPermission()
+    }
   }
 
-  // Adjust the region to fit all routes
+  // Function to handle route selection
+  func selectRoute(distanceType: RouteDistanceType) {
+    guard let userLocation = locationManager.userLocation else { return }
+    selectedDistanceType = distanceType
+    isLoading = true
+    DispatchQueue.global(qos: .userInitiated).async {
+      generateRouteOption(
+        distanceType: distanceType,
+        startingLocation: userLocation
+      ) { result in
+        DispatchQueue.main.async {
+          switch result {
+          case .success(let routeOption):
+            self.routes = [routeOption]
+            adjustRegion()
+          case .failure(let error):
+            self.errorMessage = ErrorMessage(message: error.localizedDescription)
+          }
+          self.isLoading = false
+        }
+      }
+    }
+  }
+
+  // Adjust the region to fit the selected route and user location
   private func adjustRegion() {
-    guard !routes.isEmpty else { return }
-    let allCoordinates = routes.flatMap { $0.polyline.coordinates }
+    guard let route = routes.first else { return }
+    var allCoordinates = route.polyline.coordinates
+    if let userLocation = locationManager.userLocation {
+      allCoordinates.append(userLocation)
+    }
+    guard !allCoordinates.isEmpty else { return }
     let latitudes = allCoordinates.map { $0.latitude }
     let longitudes = allCoordinates.map { $0.longitude }
 
@@ -111,24 +223,27 @@ struct RoutesMapView: View {
 }
 
 // MKMapViewWrapper for better control over MKMapView
-struct MKMapViewWrapper: UIViewRepresentable {
+struct MapViewWrapper: UIViewRepresentable {
   @Binding var region: MKCoordinateRegion
   var routes: [RouteOption]
 
   func makeUIView(context: Context) -> MKMapView {
     let mapView = MKMapView()
     mapView.delegate = context.coordinator
-    mapView.setRegion(region, animated: true)
     mapView.showsUserLocation = true
     mapView.userTrackingMode = .follow
+    mapView.setRegion(region, animated: false)
     return mapView
   }
 
   func updateUIView(_ mapView: MKMapView, context: Context) {
     mapView.setRegion(region, animated: true)
-    mapView.removeOverlays(mapView.overlays)  // Clear existing overlays
-    let polylines = routes.map { $0.polyline }
-    mapView.addOverlays(polylines)
+
+    // Remove existing overlays
+    mapView.removeOverlays(mapView.overlays)
+
+    // Add new overlays
+    mapView.addOverlays(routes.map { $0.polyline })
   }
 
   func makeCoordinator() -> Coordinator {
@@ -136,17 +251,23 @@ struct MKMapViewWrapper: UIViewRepresentable {
   }
 
   class Coordinator: NSObject, MKMapViewDelegate {
-    var parent: MKMapViewWrapper
+    var parent: MapViewWrapper
 
-    init(_ parent: MKMapViewWrapper) {
+    init(_ parent: MapViewWrapper) {
       self.parent = parent
     }
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
       if let polyline = overlay as? MKPolyline {
         let renderer = MKPolylineRenderer(polyline: polyline)
-        let routeOption = parent.routes.first { $0.polyline == polyline }
-        renderer.strokeColor = UIColor(routeOption?.distanceType == .short ? .green : routeOption?.distanceType == .medium ? .orange : .red)
+
+        // Find the corresponding RouteOption
+        if let routeOption = parent.routes.first(where: { $0.polyline === polyline }) {
+          renderer.strokeColor = routeOption.strokeColor
+        } else {
+          renderer.strokeColor = UIColor.gray
+        }
+
         renderer.lineWidth = 3
         return renderer
       }
@@ -155,118 +276,94 @@ struct MKMapViewWrapper: UIViewRepresentable {
   }
 }
 
-// Helper Functions and Extensions
-func generateCircularRoutes(from startingLocation: CLLocationCoordinate2D) async -> [RouteOption] {
-  let distancesInMiles: [RouteDistanceType: CLLocationDistance] = [
-    .short: 0.5,   // Half a mile radius for a short route
-    .medium: 2.0,  // 2 miles radius for a medium route
-    .long: 4.0     // 4 miles radius for a long route
-  ]
+// MARK: - Helper Functions and Extensions
 
-  var routeOptions: [RouteOption] = []
+// Generate a single circular route by creating waypoints around the starting location
+func generateRouteOption(distanceType: RouteDistanceType, startingLocation: CLLocationCoordinate2D, completion: @escaping (Result<RouteOption, Error>) -> Void) {
+  let desiredDistance = distanceType.desiredDistance
+  let waypointCount = 5 // Number of waypoints to form the circular route
+  let radius = desiredDistance / 2 // Radius for generating waypoints around the starting location
 
-  // Loop through each distance type
-  for (distanceType, radiusInMiles) in distancesInMiles {
-    let waypoints = createWaypointsAround(location: startingLocation, radius: radiusInMiles * 1609.34) // Convert miles to meters
-    var routePolylines: [MKPolyline] = []
+  // Generate random waypoints around the starting location
+  let waypoints = (0..<waypointCount).map { _ in
+    randomCoordinate(around: startingLocation, within: radius)
+  }
 
-    // Calculate routes between consecutive waypoints
-    for i in 0..<waypoints.count {
-      let source = waypoints[i]
-      let destination = i == waypoints.count - 1 ? startingLocation : waypoints[i + 1] // Loop back to starting point
+  // Create circular route by connecting all waypoints and returning to the starting location
+  var coordinates: [CLLocationCoordinate2D] = [startingLocation] + waypoints + [startingLocation]
 
-      let directionsRequest = MKDirections.Request()
-      directionsRequest.source = MKMapItem(placemark: MKPlacemark(coordinate: source))
-      directionsRequest.destination = MKMapItem(placemark: MKPlacemark(coordinate: destination))
-      directionsRequest.transportType = .walking
-      directionsRequest.requestsAlternateRoutes = false
+  var allCoordinates: [CLLocationCoordinate2D] = []
+  var totalDistance: CLLocationDistance = 0
+  let group = DispatchGroup()
 
-      let directions = MKDirections(request: directionsRequest)
+  for i in 0..<coordinates.count - 1 {
+    let request = MKDirections.Request()
+    request.source = MKMapItem(placemark: MKPlacemark(coordinate: coordinates[i]))
+    request.destination = MKMapItem(placemark: MKPlacemark(coordinate: coordinates[i + 1]))
+    request.transportType = .walking
+    request.requestsAlternateRoutes = false
 
-      do {
-        let response = try await directions.calculate()
-        if let route = response.routes.first {
-          routePolylines.append(route.polyline)
-        }
-      } catch {
-        print("Error calculating route: \(error.localizedDescription)")
+    let directions = MKDirections(request: request)
+    group.enter()
+    directions.calculate { response, error in
+      if let error = error {
+        completion(.failure(error))
+        group.leave()
+        return
       }
-    }
 
-    // Combine all polylines into a single polyline to represent the complete route
-    if !routePolylines.isEmpty {
-      let combinedPolyline = combinePolylines(routePolylines)
-      let distance = combinedPolyline.length()  // Calculate total distance
-      let distanceType = determineDistanceType(distance: distance)  // Determine distance type
-      routeOptions.append(RouteOption(distanceType: distanceType, polyline: combinedPolyline, distance: distance))
+      if let route = response?.routes.first {
+        allCoordinates.append(contentsOf: route.polyline.coordinates)
+        totalDistance += route.distance
+      }
+      group.leave()
     }
   }
 
-  return routeOptions
-}
+  group.notify(queue: .main) {
+    guard !allCoordinates.isEmpty else {
+      completion(.failure(NSError(domain: "RouteGeneration", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to generate route"])))
+      return
+    }
 
-// Determine Route Distance Type
-func determineDistanceType(distance: CLLocationDistance) -> RouteDistanceType {
-  let distanceInMiles = distance / 1609.34  // Convert meters to miles
-  if distanceInMiles < 1.1 {
-    return .short
-  } else if distanceInMiles <= 3.0 {
-    return .medium
-  } else {
-    return .long
+    // Combine all route polylines to form a circular route
+    let polyline = MKPolyline(coordinates: allCoordinates, count: allCoordinates.count)
+    let routeOption = RouteOption(distanceType: distanceType, polyline: polyline, distance: totalDistance)
+    completion(.success(routeOption))
   }
 }
 
-func combinePolylines(_ polylines: [MKPolyline]) -> MKPolyline {
-  let coordinates = polylines.flatMap { $0.coordinates }
-  return MKPolyline(coordinates: coordinates, count: coordinates.count)
+
+// Generate a random coordinate within a certain radius
+func randomCoordinate(around coordinate: CLLocationCoordinate2D, within radius: CLLocationDistance) -> CLLocationCoordinate2D {
+  let earthRadius = 6371000.0 // in meters
+
+  // Convert radius from meters to degrees
+  let radiusInDegrees = radius / earthRadius * (180 / .pi)
+
+  let u = Double.random(in: 0...1)
+  let v = Double.random(in: 0...1)
+  let w = radiusInDegrees * sqrt(u)
+  let t = 2 * .pi * v
+  let x = w * cos(t)
+  let y = w * sin(t)
+
+  let newLat = coordinate.latitude + y
+  let newLon = coordinate.longitude + x / cos(coordinate.latitude * .pi / 180)
+
+  return CLLocationCoordinate2D(latitude: newLat, longitude: newLon)
 }
 
-func createWaypointsAround(location: CLLocationCoordinate2D, radius: CLLocationDistance, numberOfWaypoints: Int = 8) -> [CLLocationCoordinate2D] {
-  var waypoints: [CLLocationCoordinate2D] = []
-  let earthRadius: CLLocationDistance = 6371000  // Radius of Earth in meters
-
-  // Calculate the angular distance in radians
-  let angularDistance = radius / earthRadius
-
-  for i in 0..<numberOfWaypoints {
-    // Calculate the angle for each waypoint
-    let bearing = Double(i) * (2 * .pi / Double(numberOfWaypoints))
-
-    // Convert latitude and longitude to radians
-    let lat1 = location.latitude * .pi / 180
-    let lon1 = location.longitude * .pi / 180
-
-    // Calculate new latitude
-    let lat2 = asin(sin(lat1) * cos(angularDistance) + cos(lat1) * sin(angularDistance) * cos(bearing))
-
-    // Calculate new longitude
-    let lon2 = lon1 + atan2(sin(bearing) * sin(angularDistance) * cos(lat1), cos(angularDistance) - sin(lat1) * sin(lat2))
-
-    // Convert back to degrees
-    let waypoint = CLLocationCoordinate2D(latitude: lat2 * 180 / .pi, longitude: lon2 * 180 / .pi)
-    waypoints.append(waypoint)
-  }
-
-  return waypoints
-}
-
+// MKPolyline Extension
 extension MKPolyline {
   var coordinates: [CLLocationCoordinate2D] {
     var coords = [CLLocationCoordinate2D](repeating: kCLLocationCoordinate2DInvalid, count: pointCount)
     getCoordinates(&coords, range: NSRange(location: 0, length: pointCount))
     return coords
   }
+}
 
-  // Calculate the total length of the polyline
-  func length() -> CLLocationDistance {
-    var totalDistance: CLLocationDistance = 0
-    let coordinates = self.coordinates
-    for i in 0..<coordinates.count - 1 {
-      let start = CLLocation(latitude: coordinates[i].latitude, longitude: coordinates[i].longitude)
-      let end = CLLocation(latitude: coordinates[i + 1].latitude, longitude: coordinates[i + 1].longitude)
-      totalDistance += start.distance(from: end)
-    }
-    return totalDistance
-  }
+// MARK: - Preview Provider
+#Preview {
+  RoutesMapView()
 }
