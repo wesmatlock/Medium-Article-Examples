@@ -120,6 +120,7 @@ struct RoutesMapView: View {
   @State private var isLoading = false
   @State private var errorMessage: ErrorMessage?
   @State private var selectedDistanceType: RouteDistanceType?
+  @State private var routeDistanceInMiles: Double?
 
   var body: some View {
     VStack {
@@ -150,6 +151,13 @@ struct RoutesMapView: View {
           } else if let route = routes.first {
             MapViewWrapper(region: $region, routes: [route])
               .edgesIgnoringSafeArea(.all)
+
+            // Display the route distance in miles
+            if let distanceInMiles = routeDistanceInMiles {
+              Text(String(format: "Route Distance: %.2f miles", distanceInMiles))
+                .font(.headline)
+                .padding()
+            }
           } else {
             Text("No route selected.")
               .padding()
@@ -183,6 +191,7 @@ struct RoutesMapView: View {
           switch result {
           case .success(let routeOption):
             self.routes = [routeOption]
+            self.routeDistanceInMiles = routeOption.distance / 1609.34 // Convert meters to miles
             adjustRegion()
           case .failure(let error):
             self.errorMessage = ErrorMessage(message: error.localizedDescription)
@@ -332,7 +341,6 @@ func generateRouteOption(distanceType: RouteDistanceType, startingLocation: CLLo
     completion(.success(routeOption))
   }
 }
-
 
 // Generate a random coordinate within a certain radius
 func randomCoordinate(around coordinate: CLLocationCoordinate2D, within radius: CLLocationDistance) -> CLLocationCoordinate2D {
